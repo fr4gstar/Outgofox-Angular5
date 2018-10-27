@@ -1,0 +1,19 @@
+<button class="uk-button uk-button-default">Suche</button>
+<button class="uk-button uk-button-default">Zeitraum</button>
+<button class="uk-button uk-button-default">Karte</button>
+<button class="uk-button uk-button-default">Preis</button>
+<div class="uk-width-1-5 uk-invisible-hover">
+  Start:
+  <angular2-date-picker [(ngModel)]="startDate" [settings]="settings"></angular2-date-picker>
+    Ende:
+    <angular2-date-picker [(ngModel)]="endDate" [settings]="settings"></angular2-date-picker>
+
+</div>
+<div class="uk-width-3-5">
+  Preis
+  <p>Kostenlos</p>
+  <p>Bis 10€</p>
+  <p>Über 10€</p>
+</div>
+
+

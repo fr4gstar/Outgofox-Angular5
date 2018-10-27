@@ -1,0 +1,13 @@
+.uk-card, .uk-card-default, .uk-card-body {
+  padding: initial !important;
+  margin-top:unset;
+  text-align: left;
+}
+
+.infobox {
+  padding: 10px;
+}
+
+a{
+  flaot:left;
+}

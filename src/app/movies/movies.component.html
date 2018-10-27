@@ -1,0 +1,20 @@
+<div uk-grid="masonry: true">
+  <div class="uk-card uk-card-default uk-width-1-2" *ngFor="let movie of movies;">
+    <div class="uk-card-media-top">
+      <img src="../assets/dummy-fault-movie.jpg">
+    </div>
+    <!-- <img ng-if="movie.trailer_youtube == null" ng-src="http://ausgehfuchs.de/storage/kinodaten/cinema-by-kilyan-sockalingum.jpg" class="md-card-image"> -->
+    <div class="infobox">
+        <p uk-icon="icon: tag"></p>{{ movie.category }}
+        <br>
+        <a>{{ movie.title }}</a>
+
+        <div *ngFor="let cinema of movie.cinemas;">
+          <p uk-icon="icon: location"></p>{{ cinema.name }}
+          <div *ngFor="let showtime of cinema.showtimes;">
+            {{ showtime | date:'medium'}}
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
