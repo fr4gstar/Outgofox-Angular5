@@ -16,3 +16,6 @@ before_script:
 script:
 - ng build --dev --aot
 - ng test
+
+notifications:
+  slack: ausgehfuchs:FUvpOCTSaulBcOJHW7vKl5AT
