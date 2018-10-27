@@ -14,7 +14,7 @@ before_script:
 - npm install -g @angular/cli
 
 script:
-- ng build --dev --aot
+- ng build --aot
 - ng test
 
 notifications:
