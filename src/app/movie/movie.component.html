@@ -1,0 +1,44 @@
+<div class="uk-container" style="overflow: hidden;">
+  <div class="uk-card-media-top uk-width-1-1" style="font-color: white; filter: blur(2px) brightness(.2); background: url('../assets/dummy-fault-movie.jpg') center center / cover no-repeat;height: 324px;">
+
+  </div>
+  <div id="titleBox" class="infobox uk-container uk-width-1-2">
+    <p uk-icon="icon: tag"></p>{{ movie.category | uppercase }}
+    <div [innerHTML]="movie.trailer_youtube"></div>
+    <br>
+    <p  id="title" uk-icon="icon: youtube">{{ movie.title }}</p>
+  </div>
+
+<!-- <img ng-if="movie.trailer_youtube == null" ng-src="http://ausgehfuchs.de/storage/kinodaten/cinema-by-kilyan-sockalingum.jpg" class="md-card-image"> -->
+  <div class="infobox uk-width-1-2" ukgrid>
+    <div class="uk-container uk-width-1-1">
+      <ul>
+        Teilen:
+        <a uk-icon="icon: facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://ausgehfuchs.de/movie/{{ movie.id }}"></a>
+        <a uk-icon="icon: twitter" href="https://twitter.com/home?status=http://ausgehfuchs.de/movie/{{ movie.id }}"></a>
+        <a uk-icon="icon: mail" href="mailto:mailto:?subject=&body=http://ausgehfuchs.de/movie/{{ movie.id }}"></a>
+      </ul>
+    </div>
+
+    <p>{{ movie.description }}</p>
+    <div class="infoBox" *ngFor="let info of movie.backinfo;">
+      <p>Regie: {{ info.regie }}</p>
+      <p>Land: {{ info.country }}</p>
+      <p>FSK:  {{ info.fsk }}</p>
+      <p>Schauspieler:</p>
+      <div *ngFor="let actor of info.actors;">
+        {{ actor }}
+      </div>
+
+      <p>{{ info.website_url }}</p>
+    </div>
+  </div>
+    <div class="infobox uk-width-1-2" ukgrid>
+      <div class="infoBox" *ngFor="let cinema of movie.cinemas;">
+        <p uk-icon="icon: location"></p>{{ cinema.name }}
+        <div *ngFor="let showtime of cinema.showtimes;">
+          {{ showtime | date:'d.MM - hh:mm'}}
+        </div>
+      </div>
+    </div>
+</div>

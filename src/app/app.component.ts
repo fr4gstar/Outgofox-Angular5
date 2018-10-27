@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 declare var UIkit: any;
 @Component({
   selector: 'app-root',
@@ -7,7 +8,6 @@ declare var UIkit: any;
 })
 export class AppComponent {
   title = 'Outgofox-Angular5';
-  showAlert(): void {
-    UIkit.modal.alert('UIkit alert!');
-  }
+  constructor() {}
+
 }

@@ -1,68 +1,15 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div id="header" class="uk-card uk-card-default uk-card-body" style="z-index: 980;">
-  <div class="uk-container">
-    <img id="logo" src="./assets/ausgehfuchs-logo-slogan.png" alt="Logo des ausgehfuchs.de Veranstaltungskalender">
-  </div>
-</div>
-
-<div id="banner" class="uk-container">
-  <app-banner></app-banner>
-</div>
-<div class="uk-container">
-  <app-filter></app-filter>
-</div>
-<div class="uk-container">
-  <div class="uk-text-center" uk-grid>
-    <div class="uk-width-2-3">
-      <h4>Events vom XXXX</h4>
-
-      <app-events></app-events>
-    </div>
-
-    <div class="uk-width-1-3">
-      <h4>Movies</h4>
-
-      <app-movies></app-movies>
+  <div id="header" class="uk-card uk-card-default uk-card-body" style="z-index: 980;">
+    <div class="uk-container">
+      <img id="logo" src="./assets/ausgehfuchs-logo-slogan.png" alt="Logo des ausgehfuchs.de Veranstaltungskalender">
     </div>
   </div>
-</div>
 
-<div id="footer" class="uk-card uk-card-default uk-card-body" style="z-index: 980;">
+  <router-outlet>
+  </router-outlet>
 
-  <div class="uk-container">
-    <div id="label-footer">
-      <ul>
-        <p>Folge uns:</p>
-        <p>Für Veranstalter:</p>
-        <p>Über uns:</p>
-      </ul>
-    </div>
 
-    <div id="links-footer">
-      <ul>
-        <a uk-icon="icon: facebook"
-           href="https://www.facebook.com/Ausgehfuchs-Bonn-Event-Party-Veranstaltungen-229729270946422/">Facebook</a> -
-        <a uk-icon="icon: instagram" href="https://www.instagram.com/ausgehfuchs_bonn/">Instagram</a> -
-        <a uk-icon="icon: mail" href="http://ausgehfuchs.de/newsletter">Newsletter</a>
-      </ul>
+    <app-footer></app-footer>
 
-      <ul>
-        <a href="http://ausgehfuchs.de/dashboard/veranstaltung/neu">Events eintragen</a> -
-        <a href="http://ausgehfuchs.de/preise-mediadaten">Mediadaten&Preise</a> -
-        <a href="http://ausgehfuchs.de/registrieren">Registrieren</a> -
-        <a href="http://ausgehfuchs.de/login">Login</a>
-      </ul>
-
-      <ul>
-        <a href="http://ausgehfuchs.de/dashboard/veranstaltung/neu">Kontakt und Wir</a> -
-        <a href="http://ausgehfuchs.de/dashboard/veranstaltung/neu">AGB und Datenschutz</a> -
-        <a href="http://ausgehfuchs.de/nutzungsbedingungen">Nutzungsbedingungen</a> -
-        <a href="http://ausgehfuchs.de/impressum">Impressum</a>
-      </ul>
-
-    </div>
-  </div>
-</div>
 
 
 

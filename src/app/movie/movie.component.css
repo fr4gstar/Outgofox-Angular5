@@ -1,0 +1,15 @@
+#titleBox {
+  font-weight: lighter;
+  font-size: 1.2em;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: #fff!important;
+  z-index: 999!important;
+  top: 75px;
+  left:10%;
+  position:absolute;
+}
+
+#title {
+  font-size: 1.75em;
+}

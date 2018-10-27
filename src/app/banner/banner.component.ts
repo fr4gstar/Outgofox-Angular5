@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MoviesService} from '../movies/movies.service';
 
 @Component({
   selector: 'app-banner',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
+  public premium: any;
 
-  constructor() { }
+  constructor(
+    private moviesService: MoviesService
+  ) { }
 
   ngOnInit() {
+    this.loadPremium();
   }
-
+  private loadPremium() {
+    //this.premium = this.moviesService.loadPremium();
+  }
 }

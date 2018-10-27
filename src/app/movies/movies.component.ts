@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import {MoviesService} from './movies.service';
+import {Observable} from 'rxjs';
+import {Movie} from '../Models/MOVIE';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -8,34 +10,32 @@ import {environment} from '../../environments/environment';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-  public movies: any;
-
+  public movies: Movie[];
   constructor(
-    private http: HttpClient
+    private moviesService: MoviesService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.loadMovies();
+
+    this.route.params.subscribe(params => {
+      console.log(params);
+    });
   }
 
   ngOnInit() {
+    // this.loadMovies();
   }
 
-  public convertToDate(date) {
-    return new Date(date);
+  private loadMovies(): void {
+   this.moviesService.loadMovies()
+     .subscribe(movies => {this.movies = movies;
+       console.log('movies controller', this.movies);
+     });
   }
 
-  private loadMovies() {
-    console.log('url', `${environment.SERVER_URL}movies`);
-    this.http
-      .get(`${environment.SERVER_URL}movies`)
-      .subscribe(
-        data => {
-          this.movies = data;
-          console.log('movies', this.movies);
-        },
-        err => {
-          console.error('error on loading movies', err);
-        },
-        () => console.log('done loading movies')
-      );
+  public openMovie(id) {
+    this.router.navigate(['movie/' + id]);
   }
+
 }

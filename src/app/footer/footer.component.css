@@ -1,0 +1,18 @@
+
+#label-footer {
+  float:left;
+}
+#links-footer {
+  float:right;
+}
+#footer {
+  margin-top:1%;
+  overflow: hidden;
+  background: #f8f8f8;
+
+}
+
+p, ul {
+  margin-top:unset;
+  margin-bottom:unset;
+}

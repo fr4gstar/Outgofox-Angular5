@@ -9,6 +9,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class EventsComponent implements OnInit {
   public events: any;
+  public date: any = new Date();
 
   constructor(
     private http: HttpClient

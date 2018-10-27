@@ -1,6 +1,4 @@
 .uk-card, .uk-card-default, .uk-card-body {
-  padding: initial !important;
-  margin-top:unset;
   text-align: left;
 }
 
@@ -10,4 +8,11 @@
 
 a{
   flaot:left;
+}
+h4 {
+  text-align:left;
+}
+
+.locationBox {
+  font-size: 12px;
 }
