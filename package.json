@@ -1,6 +1,9 @@
 {
   "name": "Ausgehfuchs",
   "version": "0.1.0",
+  "engines": {
+    "node": "8.12.0"
+  },
   "scripts": {
     "_heroku": "https://www.angularonrails.com/deploy-rails-application-angular-cli-webpack-front-end/",
     "ng": "ng",
