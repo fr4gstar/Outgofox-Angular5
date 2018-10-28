@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {MoviesService} from '../../Services/movies.service';
 import {EventsService} from '../../Services/events.service';
 import {Event} from '../../Models/EVENT';
+import { AgmCoreModule } from '@agm/core';
+import {google_maps_styles} from '../../app.module';
 
 @Component({
   selector: 'app-event',
@@ -12,6 +13,10 @@ import {Event} from '../../Models/EVENT';
 export class EventComponent implements OnInit {
   private id: number;
   public event: Event;
+  lat: number = 50.73743;
+  lng: number = 7.0982068;
+  styles = google_maps_styles;
+
   constructor(
     private route: ActivatedRoute,
     private eventsService: EventsService

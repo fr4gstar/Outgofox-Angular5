@@ -14,6 +14,7 @@ import { FooterComponent } from './Controller/footer/footer.component';
 import { MovieComponent } from './Controller/movie/movie.component';
 import { HomeComponent } from './Controller/home/home.component';
 import { EventComponent } from './Controller/event/event.component';
+import { AgmCoreModule } from '@agm/core';
 import {EventsService} from './Services/events.service';
 
 const routes: Routes = [
@@ -25,7 +26,12 @@ const routes: Routes = [
   { path: 'event/:id', component: EventComponent },
   { path: '**', redirectTo: 'home' }
 ];
-
+export const google_maps_styles = [{
+  'featureType': 'all',
+  'stylers': [{
+    'saturation': -100
+  }]
+}];
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +47,9 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBf7up57RzDaPTSmR2FcRwy9dRtqT-zvUM'
+    }),
     AngularDateTimePickerModule,
     RouterModule.forRoot(routes, {
       useHash: true,
