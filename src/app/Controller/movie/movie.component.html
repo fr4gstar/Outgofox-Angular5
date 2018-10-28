@@ -4,7 +4,6 @@
   </div>
   <div id="titleBox" class="infobox uk-container uk-width-1-2">
     <p uk-icon="icon: tag"></p>{{ movie.category | uppercase }}
-    <div [innerHTML]="movie.trailer_youtube"></div>
     <br>
     <p  id="title" uk-icon="icon: youtube">{{ movie.title }}</p>
   </div>
@@ -21,6 +20,7 @@
     </div>
 
     <p>{{ movie.description }}</p>
+
     <div class="infoBox" *ngFor="let info of movie.backinfo;">
       <p>Regie: {{ info.regie }}</p>
       <p>Land: {{ info.country }}</p>
@@ -32,6 +32,7 @@
 
       <p>{{ info.website_url }}</p>
     </div>
+
   </div>
     <div class="infobox uk-width-1-2" ukgrid>
       <div class="infoBox" *ngFor="let cinema of movie.cinemas;">
@@ -39,6 +40,13 @@
         <div *ngFor="let showtime of cinema.showtimes;">
           {{ showtime | date:'d.MM - hh:mm'}}
         </div>
+
       </div>
     </div>
+</div>
+
+<div class="uk-container">
+  <agm-map [latitude]="movie.cinemas[0].gmaps_latitude" [longitude]="movie.cinemas[0].gmaps_longitutde" [styles]="styles">
+    <agm-marker [latitude]="cinema.gmaps_latitude" [longitude]="cinema.gmaps_longitutde" *ngFor="let cinema of movie.cinemas;"></agm-marker>
+  </agm-map>
 </div>
