@@ -6,14 +6,12 @@
     "npm": "3.10.10"
   },
   "scripts": {
-    "_heroku": "https://www.angularonrails.com/deploy-rails-application-angular-cli-webpack-front-end/",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "preinstall": "npm install -g http-server",
     "postinstall": "ng build --aot -prod"
   },
   "private": true,
