@@ -4,7 +4,7 @@
   "scripts": {
     "_heroku": "https://www.angularonrails.com/deploy-rails-application-angular-cli-webpack-front-end/",
     "ng": "ng",
-    "start": "http-server dist/",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
