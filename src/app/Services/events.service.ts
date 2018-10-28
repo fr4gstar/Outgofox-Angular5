@@ -23,18 +23,6 @@ export class EventsService {
           console.log('fetched events')
         ),
         catchError(this.handleError('loadEvents', [])));
-    /*
-      .subscribe((response: Event[]) => {
-          console.log('events service call', response);
-        },
-        (err: Error) => {
-          console.log('events service call error');
-        },
-      () => {
-        console.log('events service call successfull');
-    }
-      );
-      */
   }
 
   public loadEvent(id: number): Observable<any> {
@@ -46,18 +34,6 @@ export class EventsService {
           console.log('fetched event', event)
         ),
         catchError(this.handleError('getEvent', [])));
-    /*
-      .subscribe((response: Event[]) => {
-          console.log('events service call', response);
-        },
-        (err: Error) => {
-          console.log('events service call error');
-        },
-      () => {
-        console.log('events service call successfull');
-    }
-      );
-      */
   }
 
   /**

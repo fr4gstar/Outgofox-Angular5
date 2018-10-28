@@ -14,6 +14,7 @@ import { FooterComponent } from './Controller/footer/footer.component';
 import { MovieComponent } from './Controller/movie/movie.component';
 import { HomeComponent } from './Controller/home/home.component';
 import { EventComponent } from './Controller/event/event.component';
+import {EventsService} from './Services/events.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -47,7 +48,8 @@ const routes: Routes = [
     })
   ],
   providers: [
-    MoviesService
+    MoviesService,
+    EventsService
   ],
   bootstrap: [AppComponent]
 })

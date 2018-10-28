@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {MoviesService} from '../../Services/movies.service';
 import {EventsService} from '../../Services/events.service';
-import {Movie} from '../../Models/MOVIE';
+import {Event} from '../../Models/EVENT';
 
 @Component({
   selector: 'app-event',
