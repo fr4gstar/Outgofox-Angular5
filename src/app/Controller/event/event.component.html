@@ -1,0 +1,41 @@
+<div class="uk-container" style="overflow: hidden;">
+  <div class="uk-card-media-top uk-width-1-1" style="font-color: white; filter: blur(2px) brightness(.2); background: url('../assets/dummy-fault-movie.jpg') center center / cover no-repeat;height: 324px;">
+
+  </div>
+  <div id="titleBox" class="infobox uk-container">
+    <p uk-icon="icon: tag"></p>{{ event.category[0] | uppercase }}
+    <br>
+    <p  id="title" uk-icon="icon: youtube">{{ event.title }}</p>
+  </div>
+
+  <!-- <img ng-if="movie.trailer_youtube == null" ng-src="http://ausgehfuchs.de/storage/kinodaten/cinema-by-kilyan-sockalingum.jpg" class="md-card-image"> -->
+  <div class="infobox uk-width-1-2" ukgrid>
+    <div class="uk-container uk-width-1-1">
+      <ul>
+        Teilen:
+        <a uk-icon="icon: facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://ausgehfuchs.de/event/{{ event.id }}"></a>
+        <a uk-icon="icon: twitter" href="https://twitter.com/home?status=http://ausgehfuchs.de/event/{{ event.id }}"></a>
+        <a uk-icon="icon: mail" href="mailto:mailto:?subject=&body=http://ausgehfuchs.de/event/{{ event.id }}"></a>
+      </ul>
+    </div>
+
+    <p>{{ event.description }}</p>
+
+    <div class="infoBox">
+      <p uk-icon="icon: location"></p> {{ event.address[0].location_name }}
+
+      <br>
+      <p uk-icon="icon: clock"></p>
+      {{event.showtime[0].start | date:'E d.MM hh:mm'}} - {{event.showtime[0].end | date:'E d.MM hh:mm'}}
+
+    </div>
+  </div>
+
+  <p uk-icon="icon: cart"></p> Preis
+  <div  *ngFor="let p of event.pricing;">
+    <div *ngFor="let item of p | keyvalue">
+      {{item.key}}:{{item.value}}
+    </div>
+  </div>
+
+</div>
