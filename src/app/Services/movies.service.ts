@@ -22,41 +22,17 @@ export class MoviesService {
         console.log('fetched movies')
         ),
         catchError(this.handleError('loadMovies', [])));
-    /*
-      .subscribe((response: Movie[]) => {
-          console.log('movies service call', response);
-        },
-        (err: Error) => {
-          console.log('movies service call error');
-        },
-      () => {
-        console.log('movies service call successfull');
-    }
-      );
-      */
   }
 
   public loadMovie(id: number): Observable<any> {
     console.log('load movie service - url', `${environment.SERVER_URL}movie/${id}`);
     return this.http
-      .get<Movie>(`${environment.SERVER_URL}movie/000000`)
+      .get<Movie>(`${environment.SERVER_URL}movie/${id}`)
       .pipe(tap(movie =>
           //this.log('fetched heroes')
           console.log('fetched movie', movie)
         ),
         catchError(this.handleError('getHeroes', [])));
-    /*
-      .subscribe((response: Movie[]) => {
-          console.log('movies service call', response);
-        },
-        (err: Error) => {
-          console.log('movies service call error');
-        },
-      () => {
-        console.log('movies service call successfull');
-    }
-      );
-      */
   }
 
   /**
@@ -78,29 +54,5 @@ export class MoviesService {
       return of(result as T);
     };
   }
-
-  /*
-  public loadPremium() {
-    let premium: [Movie];
-    console.log('load premium - url', `${environment.SERVER_URL}movies`);
-    this.http
-      .get<Movie>(`${environment.SERVER_URL}movies`)
-      .subscribe(
-        data => {
-          console.log('premium service', data);
-
-          for (let i = 0; i < data; i++) {
-            console.log(array[i]);
-          }
-
-          return premium;
-        },
-        err => {
-          console.error('error on loading premium', err);
-        },
-        () => console.log('done loading premium')
-      );
-  }
-*/
 
 }

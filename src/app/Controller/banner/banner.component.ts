@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MoviesService} from '../movies/movies.service';
+import {MoviesService} from '../../Services/movies.service';
 
 @Component({
   selector: 'app-banner',

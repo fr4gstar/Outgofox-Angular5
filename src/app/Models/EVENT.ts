@@ -1,4 +1,5 @@
-export class Event {
+export interface Event {
+  _id?: string;
   id: number;
   title: string;
   description: string;
@@ -12,9 +13,4 @@ export class Event {
   pricing: any;
   image_thumbnail: string;
   image_banner: string;
-
-  constructor(values: Object = {}) {
-    Object.assign(this, values);
-  }
-
 }

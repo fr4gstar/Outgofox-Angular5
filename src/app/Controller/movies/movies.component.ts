@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MoviesService} from './movies.service';
+import {MoviesService} from '../../Services/movies.service';
 import {Observable} from 'rxjs';
-import {Movie} from '../Models/MOVIE';
+import {Movie} from '../../Models/MOVIE';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -17,10 +17,6 @@ export class MoviesComponent implements OnInit {
     private router: Router
   ) {
     this.loadMovies();
-
-    this.route.params.subscribe(params => {
-      console.log(params);
-    });
   }
 
   ngOnInit() {
