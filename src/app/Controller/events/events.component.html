@@ -1,35 +1,36 @@
 <h4>Events vom {{date | date:'d.MM'}}</h4>
 <div uk-grid="masonry: true">
   <div class="uk-card uk-card-default uk-width-1-3" *ngFor="let event of events;">
-    <div class="uk-card-media-top">
-      <img src="../assets/dummy-fault-movie.jpg">
-    </div>
-    <!-- <img ng-if="movie.trailer_youtube == null" ng-src="http://ausgehfuchs.de/storage/kinodaten/cinema-by-kilyan-sockalingum.jpg" class="md-card-image"> -->
-    <div >
-      <p uk-icon="icon: tag"></p> {{ event.category[0] | uppercase }}
+    <div class="eventBox">
+      <div class="uk-card-media-top">
+        <img src="../assets/dummy-fault-movie.jpg">
+      </div>
+      <!-- <img ng-if="movie.trailer_youtube == null" ng-src="http://ausgehfuchs.de/storage/kinodaten/cinema-by-kilyan-sockalingum.jpg" class="md-card-image"> -->
+      <div >
+        <p uk-icon="icon: tag"></p> {{ event.category[0] | uppercase }}
 
-      <br>
-      <a routerLink="/event/{{event.id}}">{{ event.title }}</a>
-    </div>
+        <br>
+        <a routerLink="/event/{{event.id}}">{{ event.title }}</a>
+      </div>
 
-    <div class="infobox">
-      <p uk-icon="icon: location"></p> {{ event.address[0].location_name }}
+      <div class="infobox">
+        <p uk-icon="icon: location"></p> {{ event.address[0].location_name }}
 
-      <br>
-      <p uk-icon="icon: clock"></p>
-      {{event.showtime[0].start | date:'E d.MM hh:mm'}} - {{event.showtime[0].end | date:'E d.MM hh:mm'}}
+        <br>
+        <p uk-icon="icon: clock"></p>
+        {{event.showtime[0].start | date:'E d.MM hh:mm'}} - {{event.showtime[0].end | date:'E d.MM hh:mm'}}
 
-      <br>
-      <a *ngIf="event.showtime[1] != null"> Weitere Termine</a>
+        <br>
+        <a *ngIf="event.showtime[1] != null"> Weitere Termine</a>
 
-      <br>
-      <p uk-icon="icon: cart"></p> Preis
-      <div *ngFor="let p of event.pricing;">
-        <div *ngFor="let item of p | keyvalue">
-          {{item.key}}:{{item.value}}
+        <br>
+        <p uk-icon="icon: cart"></p> Preis
+        <div *ngFor="let p of event.pricing;">
+          <div *ngFor="let item of p | keyvalue">
+            {{item.key}}:{{item.value}}
+          </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
