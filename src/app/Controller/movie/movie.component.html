@@ -1,12 +1,15 @@
 <div class="uk-container" style="overflow: hidden;">
   <div class="uk-card-media-top uk-width-1-1" style="font-color: white; filter: blur(2px) brightness(.2); background: url('../assets/dummy-fault-movie.jpg') center center / cover no-repeat;height: 324px;">
-
   </div>
+
   <div id="titleBox" class="infobox uk-container uk-width-1-2">
     <p uk-icon="icon: tag"></p>{{ movie.category | uppercase }}
     <br>
     <p  id="title" uk-icon="icon: youtube">{{ movie.title }}</p>
   </div>
+
+
+  <div [innerHtml]="iframe_html"></div>'
 
 <!-- <img ng-if="movie.trailer_youtube == null" ng-src="http://ausgehfuchs.de/storage/kinodaten/cinema-by-kilyan-sockalingum.jpg" class="md-card-image"> -->
   <div class="infobox uk-width-1-2" ukgrid>

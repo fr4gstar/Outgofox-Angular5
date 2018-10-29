@@ -16,6 +16,7 @@ import { HomeComponent } from './Controller/home/home.component';
 import { EventComponent } from './Controller/event/event.component';
 import { AgmCoreModule } from '@agm/core';
 import {EventsService} from './Services/events.service';
+import {EmbedVideo} from 'ngx-embed-video/dist';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -47,6 +48,7 @@ export const google_maps_styles = [{
   imports: [
     BrowserModule,
     HttpClientModule,
+    EmbedVideo.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBf7up57RzDaPTSmR2FcRwy9dRtqT-zvUM'
     }),
