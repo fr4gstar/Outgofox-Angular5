@@ -3,8 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {MoviesService} from '../../Services/movies.service';
 import {Movie} from '../../Models/MOVIE';
 import { AgmCoreModule } from '@agm/core';
-import {google_maps_styles} from '../../app.module';
 import {EmbedVideoService} from 'ngx-embed-video/dist';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-movie',
@@ -16,7 +16,7 @@ export class MovieComponent implements OnInit {
   public movie: Movie;
   lat: number = 50.685852;
   lng: number = 7.155368;
-  styles = google_maps_styles;
+  styles = environment.GOOGLEMAPS_STYLES;
   iframe_html: any;
   constructor(
     private route: ActivatedRoute,

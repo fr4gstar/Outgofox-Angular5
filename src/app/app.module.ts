@@ -27,12 +27,7 @@ const routes: Routes = [
   { path: 'event/:id', component: EventComponent },
   { path: '**', redirectTo: 'home' }
 ];
-export const google_maps_styles = [{
-  'featureType': 'all',
-  'stylers': [{
-    'saturation': -100
-  }]
-}];
+
 @NgModule({
   declarations: [
     AppComponent,

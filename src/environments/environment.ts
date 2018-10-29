@@ -4,7 +4,13 @@
 
 export const environment = {
   production: false,
-  SERVER_URL: 'https://foxsden-dev.herokuapp.com/'
+  SERVER_URL: 'https://foxsden-dev.herokuapp.com/',
+  GOOGLEMAPS_STYLES: [{
+    'featureType': 'all',
+    'stylers': [{
+      'saturation': -100
+    }]
+  }]
 };
 
 /*

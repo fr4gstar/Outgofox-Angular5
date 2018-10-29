@@ -11,8 +11,10 @@
           <p uk-icon="icon: tag"></p> {{ event.category[0] | uppercase }}
 
           <br>
-          <a routerLink="/event/{{event.id}}">{{ event.title }}</a>
-        </div>
+
+          <a class="title" routerLink="/event/{{event.id}}">{{ event.title }}</a>
+
+          </div>
         <p uk-icon="icon: location"></p> {{ event.address[0].location_name }}
 
         <br>

@@ -9,7 +9,7 @@
       <div class="infobox">
           <p uk-icon="icon: tag"></p>{{ movie.category | uppercase }}
           <br>
-          <a routerLink="/movie/{{movie.id}}">{{ movie.title }}</a>
+          <a  class="title" routerLink="/movie/{{movie.id}}">{{ movie.title }}</a>
 
           <div class="locationBox" *ngFor="let cinema of movie.cinemas;">
             <p uk-icon="icon: location"></p>{{ cinema.name }}
