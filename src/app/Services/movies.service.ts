@@ -4,6 +4,8 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Movie} from '../Models/MOVIE';
 import {Observable, of} from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import * as uikit from 'uikit';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class MoviesService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private _sanitizer: DomSanitizer
   ) { }
 
   public loadMovies(): Observable<Movie[]> {
@@ -33,6 +36,21 @@ export class MoviesService {
           console.log('fetched movie', movie)
         ),
         catchError(this.handleError('getHeroes', [])));
+  }
+
+
+  public getYoutubeImage(id_youtube) {
+    const url = 'https://img.youtube.com/vi/' + id_youtube + '/hqdefault.jpg';
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${url})`);
+  }
+
+  public getYoutubeVideoURL(id_youtube) {
+    const url = 'https://www.youtube-nocookie.com/embed/' + id_youtube;
+    return this._sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  closeYoutubeTrailer(id_youtube): void {
+    uikit.video('video_{{id_youtube}}', 'stopVideo');
   }
 
   /**
