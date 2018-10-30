@@ -2,7 +2,7 @@
 <div uk-grid="masonry: true">
   <div class="uk-card uk-card-default uk-width-1-2" *ngFor="let movie of movies;">
     <div class="eventBox">
-      <img *ngIf="movie.id_youtube == ''" src="../assets/dummy-fault-movie.jpg">
+      <img *ngIf="movie.id_youtube == ''" src="assets/dummy-fault-movie.jpg">
       <div class="uk-card-media-top youtube" [style.background-image]="getYoutubeImage(movie.id_youtube)" *ngIf="movie.id_youtube != ''">
         <div  >
           <a class="play-button" href="#modal_{{movie.id_youtube}}" uk-toggle></a>
