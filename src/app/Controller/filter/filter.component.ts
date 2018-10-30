@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import {environment} from '../../../environments/environment';
+import {EventsService} from '../../Services/events.service';
+import {Event} from '../../Models/EVENT';
 declare var UIkit: any;
 
 @Component({
@@ -16,6 +18,7 @@ export class FilterComponent implements OnInit {
   openFilter = false;
   bonn_lat = 50.73743;
   bonn_lng = 7.0982068;
+  public events: Event[];
   styles = environment.GOOGLEMAPS_STYLES;
   settings = {
     bigBanner: false,
@@ -23,7 +26,11 @@ export class FilterComponent implements OnInit {
     format: 'dd-MM-yyyy',
     defaultOpen: false
   }
-  constructor() { }
+  constructor(
+    private eventsService: EventsService
+  ) {
+    this.loadEvents();
+  }
 
   ngOnInit() {
   }
@@ -55,6 +62,14 @@ export class FilterComponent implements OnInit {
     } else {
       this.openSearch = false;
     }
+  }
+
+  private loadEvents(): void {
+    this.eventsService.loadEvents()
+      .subscribe(events => {
+        this.events = events;
+        console.log('events controller', this.events);
+      });
   }
 
   showAlert(): void {

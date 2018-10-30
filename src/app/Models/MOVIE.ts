@@ -18,8 +18,8 @@ export interface Movie {
     street: string,
     zipCode: number,
     city: string,
-    longitutde: number,
-    latitude: number,
+    gmaps_longitutde: number,
+    gmaps_latitude: number,
     opening_times: [string],
     showtimes: [Date]
   }];
