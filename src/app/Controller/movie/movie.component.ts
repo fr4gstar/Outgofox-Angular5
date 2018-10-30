@@ -3,8 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {MoviesService} from '../../Services/movies.service';
 import {Movie} from '../../Models/MOVIE';
 import { AgmCoreModule } from '@agm/core';
-import {google_maps_styles} from '../../app.module';
 import {EmbedVideoService} from 'ngx-embed-video/dist';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-movie',
@@ -16,21 +16,16 @@ export class MovieComponent implements OnInit {
   public movie: Movie;
   lat: number = 50.685852;
   lng: number = 7.155368;
-  styles = google_maps_styles;
-  iframe_html: any;
+  styles = environment.GOOGLEMAPS_STYLES;
   constructor(
     private route: ActivatedRoute,
-    private moviesService: MoviesService,
-    private embedService: EmbedVideoService
+    private moviesService: MoviesService
   ) {
     this.route.params.subscribe( params => {
       this.id = params.id;
       console.log('id', this.id);
       this.loadMovie(this.id);
     });
-    this.iframe_html = this.embedService.embed_youtube('iHhcHTlGtRs');
-    console.log(this.embedService.embed_youtube('iHhcHTlGtRs'));
-
   }
 
   ngOnInit() {
@@ -41,5 +36,17 @@ export class MovieComponent implements OnInit {
       .subscribe(movie => {this.movie = movie;
         console.log('Movie Controller', this.movie);
       });
+  }
+
+  public getYoutubeImage(id_youtube) {
+    return this.moviesService.getYoutubeImage(id_youtube);
+  }
+
+  public getYoutubeVideoURL(id_youtube) {
+    return this.moviesService.getYoutubeVideoURL(id_youtube);
+  }
+
+  public closeYoutubeTrailer(id_youtube): void {
+    return this.moviesService.closeYoutubeTrailer(id_youtube);
   }
 }

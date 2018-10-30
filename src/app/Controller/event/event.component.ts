@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {EventsService} from '../../Services/events.service';
 import {Event} from '../../Models/EVENT';
 import { AgmCoreModule } from '@agm/core';
-import {google_maps_styles} from '../../app.module';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-event',
@@ -15,7 +15,7 @@ export class EventComponent implements OnInit {
   public event: Event;
   lat: number = 50.73743;
   lng: number = 7.0982068;
-  styles = google_maps_styles;
+  styles = environment.GOOGLEMAPS_STYLES;
 
   constructor(
     private route: ActivatedRoute,
