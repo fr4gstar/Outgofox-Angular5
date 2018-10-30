@@ -2,10 +2,13 @@
 <div uk-grid="masonry: true">
   <div class="uk-card uk-card-default uk-width-1-2" *ngFor="let movie of movies;">
     <div class="eventBox">
-      <div class="uk-card-media-top">
-        <img src="../assets/dummy-fault-movie.jpg">
+      <img *ngIf="movie.id_youtube == ''" src="../assets/dummy-fault-movie.jpg">
+      <div class="uk-card-media-top youtube" [style.background-image]="getYoutubeImage(movie.id_youtube)" *ngIf="movie.id_youtube != ''">
+        <div  >
+          <a class="play-button" href="#modal_{{movie.id_youtube}}" uk-toggle></a>
+        </div>
       </div>
-      <!-- <img ng-if="movie.trailer_youtube == null" ng-src="http://ausgehfuchs.de/storage/kinodaten/cinema-by-kilyan-sockalingum.jpg" class="md-card-image"> -->
+
       <div class="infobox">
           <p uk-icon="icon: tag"></p>{{ movie.category | uppercase }}
           <br>
@@ -19,5 +22,21 @@
           </div>
       </div>
     </div>
+
+    <div id="modal_{{movie.id_youtube}}" class="uk-flex-top" uk-modal>
+      <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+        <button (click)="closeYoutubeTrailer(movie.id_youtube)" class="uk-modal-close-outside" type="button" uk-close></button>
+        <iframe id="video_{{movie.id_youtube}}" [src]="getYoutubeVideoURL(movie.id_youtube)" width="560" height="300" frameborder="0"
+                allow="autoplay"
+                allowfullscreen="allowfullscreen"
+                mozallowfullscreen="mozallowfullscreen"
+                msallowfullscreen="msallowfullscreen"
+                oallowfullscreen="oallowfullscreen"
+                webkitallowfullscreen="webkitallowfullscreen"uk-video></iframe>
+      </div>
+    </div>
+
   </div>
 </div>
+
+

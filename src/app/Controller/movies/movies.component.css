@@ -24,3 +24,23 @@ h4 {
 .title {
   font-size: 14px;
 }
+
+.youtube {
+  background-color: #000;
+  position: relative;
+  padding-top: 74.25%;
+  overflow: hidden;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.play-button {
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0);
+  content: "";
+  border-style: solid;
+  border-width: 15px 0 15px 26px;
+  border-color: transparent transparent transparent #fff;
+  position: absolute;
+}
