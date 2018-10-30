@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import {google_maps_styles} from '../../app.module';
+import {environment} from '../../../environments/environment';
 declare var UIkit: any;
 
 @Component({
@@ -16,7 +16,7 @@ export class FilterComponent implements OnInit {
   openFilter = false;
   bonn_lat = 50.73743;
   bonn_lng = 7.0982068;
-  styles = google_maps_styles;
+  styles = environment.GOOGLEMAPS_STYLES;
   settings = {
     bigBanner: false,
     timePicker: false,

@@ -13,3 +13,10 @@ a{
 h4 {
   text-align:left;
 }
+.eventIMG {
+  border-bottom: 1px solid #ededed;
+}
+
+.title {
+  font-size: 14px;
+}

@@ -1,15 +1,42 @@
-#titleBox {
+#infobox {
+  padding: 10px;
+  font-size: 12px;
+  float: left;
+}
+.titleBox {
   font-weight: lighter;
   font-size: 1.2em;
   padding-top: 50px;
   padding-bottom: 50px;
+  padding-left: 2%;
+  padding-right: 20%;
   color: #fff!important;
   z-index: 999!important;
   top: 75px;
-  left:10%;
+  position:absolute;
+}
+
+.imgBox {
+  padding-top: 1%;
+  padding-bottom: 0%;
+  padding-right: 5%;
+  padding-left: 1%;
+  max-height: 300px;
+  max-width: 275px;
+  float:right;
+  top: 75px;
+  z-index: 999!important;
   position:absolute;
 }
 
 #title {
   font-size: 1.75em;
+}
+
+.youtube {
+  height: 300px;
+  width: 450px;
+  max-height: 300px;
+  max-width: 450px;
+  border: 5px solid white;
 }

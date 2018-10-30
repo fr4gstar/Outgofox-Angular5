@@ -26,5 +26,5 @@ export interface Movie {
   image_thumbnail: string;
   image_poster: string;
   trailer_youtube: string;
-
+  id_youtube: string;
 }

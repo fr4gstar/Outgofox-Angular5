@@ -36,7 +36,7 @@
     "express": "^4.16.4",
     "jquery": "^3.3.1",
     "jquery-ui": "^1.12.1",
-    "path": "^0.12.7",
+    "ngx-embed-video": "^1.0.0",
     "rxjs": "^6.2.2",
     "uikit": "^3.0.0-rc.20",
     "zone.js": "~0.8.26"

@@ -1,15 +1,51 @@
-<div class="uk-container" style="overflow: hidden;">
-  <div class="uk-card-media-top uk-width-1-1" style="font-color: white; filter: blur(2px) brightness(.2); background: url('http://ausgehfuchs.de/storage/kinodaten/cinema-by-kilyan-sockalingum.jpg') center center / cover no-repeat;height: 324px;">
-
-  </div>
-  <div id="titleBox" class="infobox uk-container uk-width-1-2">
-    <p uk-icon="icon: tag"></p>{{ movie.category | uppercase }}
-    <br>
-    <p  id="title" uk-icon="icon: youtube">{{ movie.title }}</p>
+<div class="uk-container">
+  <div style="overflow: hidden;">
+    <div class="uk-card-media-top uk-width-1-1"
+         style="font-color: white; filter: blur(2px) brightness(.2); background: url('../assets/dummy-fault-movie.jpg') center center / cover no-repeat;height: 324px;">
+    </div>
   </div>
 
-<!-- <img ng-if="movie.trailer_youtube == null" ng-src="http://ausgehfuchs.de/storage/kinodaten/cinema-by-kilyan-sockalingum.jpg" class="md-card-image"> -->
-  <div class="infobox uk-width-1-2" ukgrid>
+  <div uk-grid>
+    <div class="uk-width-1-2">
+      <div class="titleBox uk-width-3-5">
+        <p uk-icon="icon: tag"></p>{{ movie.category | uppercase }}
+        <br>
+        <p  id="title" uk-icon="icon: youtube">{{ movie.title }}</p>
+        <br>
+
+        <div uk-grid>
+          <div class="uk-width-1-3 uk-text-small">
+            Länge: {{ movie.backinfo[0].length }}
+            {{ movie.backinfo[0].website_url }}
+          </div>
+          <div class="uk-width-1-3 uk-text-small">
+            Regie: {{ movie.backinfo[0].regie }}
+            Land: {{ movie.backinfo[0].country }}
+            FSK:  {{ movie.backinfo[0].fsk }}
+          </div>
+          <div class="uk-width-1-3 uk-text-small">
+            Schauspieler:
+            <div *ngFor="let actor of movie.backinfo[0].actors;">
+              {{ actor }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="uk-width-1-2">
+      <div class="imgBox">
+        <iframe id="video_{{movie.id_youtube}}" [src]="getYoutubeVideoURL(movie.id_youtube)" width="560" height="300" frameborder="0"
+                allowfullscreen="allowfullscreen"
+                mozallowfullscreen="mozallowfullscreen"
+                msallowfullscreen="msallowfullscreen"
+                oallowfullscreen="oallowfullscreen"
+                webkitallowfullscreen="webkitallowfullscreen"uk-video></iframe>
+      </div>
+    </div>
+  </div>
+
     <div class="uk-container uk-width-1-1">
       <ul>
         Teilen:
@@ -19,30 +55,21 @@
       </ul>
     </div>
 
-    <p>{{ movie.description }}</p>
-
-    <div class="infoBox" *ngFor="let info of movie.backinfo;">
-      <p>Regie: {{ info.regie }}</p>
-      <p>Land: {{ info.country }}</p>
-      <p>FSK:  {{ info.fsk }}</p>
-      <p>Schauspieler:</p>
-      <div *ngFor="let actor of info.actors;">
-        {{ actor }}
+    <div uk-grid>
+      <div class="infobox uk-width-1-2">
+        {{ movie.description }}
       </div>
 
-      <p>{{ info.website_url }}</p>
-    </div>
-
-  </div>
-    <div class="infobox uk-width-1-2" ukgrid>
-      <div class="infoBox" *ngFor="let cinema of movie.cinemas;">
-        <p uk-icon="icon: location"></p>{{ cinema.name }}
-        <div *ngFor="let showtime of cinema.showtimes;">
-          {{ showtime | date:'d.MM - hh:mm'}}
+      <div class="infobox uk-width-1-2">
+        <div class="infoBox" *ngFor="let cinema of movie.cinemas;">
+          <p uk-icon="icon: location"></p>{{ cinema.name }}
+          <div *ngFor="let showtime of cinema.showtimes;">
+            {{ showtime | date:'d.MM - hh:mm'}}
+          </div>
         </div>
-
       </div>
     </div>
+  <hr>
 </div>
 
 <div class="uk-container">
