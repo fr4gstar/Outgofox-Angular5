@@ -88,22 +88,13 @@
       </div>
     </div>
 
-    <div class="uk-container uk-width-1-1">
-      <ul>
-        Teilen:
-        <a uk-icon="icon: facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://ausgehfuchs.de/event/{{ event.id }}"></a>
-        <a uk-icon="icon: twitter" href="https://twitter.com/home?status=http://ausgehfuchs.de/event/{{ event.id }}"></a>
-        <a uk-icon="icon: mail" href="mailto:mailto:?subject=&body=http://ausgehfuchs.de/event/{{ event.id }}"></a>
-      </ul>
-    </div>
-
   </div>
   <hr>
 </div>
 
 <div class="uk-container">
-  <agm-map [latitude]="lat" [longitude]="lng" [styles]="styles">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  <agm-map [latitude]="event.address[0].gmaps_latitude" [longitude]="event.address[0].gmaps_longitutde" [styles]="styles">
+    <agm-marker [latitude]="event.address[0].gmaps_latitude" [longitude]="event.address[0].gmaps_longitutde"></agm-marker>
   </agm-map>
 </div>
 

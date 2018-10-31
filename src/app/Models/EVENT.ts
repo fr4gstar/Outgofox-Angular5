@@ -8,7 +8,16 @@ export interface Event {
     start: Date,
     end: Date
   }];
-  address: any;
+  address: [
+    {
+      location_name: string,
+      location_street: string,
+      location_zipcode: string,
+      location_city: string,
+      gmaps_longitutde: number,
+      gmaps_latitude: number,
+    }
+    ];
   opening_times: any;
   pricing: any;
   image_thumbnail: string;

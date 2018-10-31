@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {MoviesService} from '../../Services/movies.service';
 import {EventsService} from '../../Services/events.service';
+import {Event} from '../../Models/EVENT';
 
 @Component({
   selector: 'app-events',
@@ -10,12 +9,12 @@ import {EventsService} from '../../Services/events.service';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  public events: any;
+  public events: Event[];
   public date: any = new Date();
 
   constructor(
     private http: HttpClient,
-    private eventsService: EventsService,
+    private eventsService: EventsService
   ) {
     this.loadEvents();
   }

@@ -9,8 +9,6 @@ import {catchError, tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class EventsService {
-
-
   constructor(
     private http: HttpClient
   ) { }
@@ -23,6 +21,16 @@ export class EventsService {
           console.log('fetched events')
         ),
         catchError(this.handleError('loadEvents', [])));
+  }
+
+  public loadPremiums(): Observable<Event[]> {
+    console.log('load premium events service - url', `${environment.SERVER_URL}premiums`);
+    return this.http
+      .get<Event[]>(`${environment.SERVER_URL}premiums`)
+      .pipe(tap(events =>
+          console.log('fetched premium events')
+        ),
+        catchError(this.handleError('loadPremiums', [])));
   }
 
   public loadEvent(id: number): Observable<any> {
@@ -55,29 +63,4 @@ export class EventsService {
       return of(result as T);
     };
   }
-
-  /*
-  public loadPremium() {
-    let premium: [Event];
-    console.log('load premium - url', `${environment.SERVER_URL}events`);
-    this.http
-      .get<Event>(`${environment.SERVER_URL}events`)
-      .subscribe(
-        data => {
-          console.log('premium service', data);
-
-          for (let i = 0; i < data; i++) {
-            console.log(array[i]);
-          }
-
-          return premium;
-        },
-        err => {
-          console.error('error on loading premium', err);
-        },
-        () => console.log('done loading premium')
-      );
-  }
-*/
-
 }
