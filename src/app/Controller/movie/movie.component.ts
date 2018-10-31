@@ -14,8 +14,6 @@ import {environment} from '../../../environments/environment';
 export class MovieComponent implements OnInit {
   private id: number;
   public movie: Movie;
-  lat: number = 50.685852;
-  lng: number = 7.155368;
   styles = environment.GOOGLEMAPS_STYLES;
   constructor(
     private route: ActivatedRoute,

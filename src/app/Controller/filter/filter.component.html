@@ -56,29 +56,8 @@
   </div>
 </div>
 
-
 <div class="uk-container" *ngIf="openMap">
   <agm-map [latitude]="bonn_lat" [longitude]="bonn_lng" [styles]="styles">
-    <agm-marker [latitude]="bonn_lat" [longitude]="bonn_lng"></agm-marker>
+    <agm-marker [latitude]="event.address[0].gmaps_latitude" [longitude]="event.address[0].gmaps_longitutde" *ngFor="let event of events;"></agm-marker>
   </agm-map>
 </div>
-
-<!--
-<button class="uk-button uk-button-default"><p uk-icon="icon: calendar"></p>Zeitraum</button>
-<button class="uk-button uk-button-default"><p uk-icon="icon: cart"></p>Preis</button>
-<button class="uk-button uk-button-default"><p uk-icon="icon: tag"></p>Kategorie</button>
-
-<div class="uk-width-1-5 uk-invisible-hover">
-  Start:
-  <angular2-date-picker [(ngModel)]="startDate" [settings]="settings"></angular2-date-picker>
-    Ende:
-    <angular2-date-picker [(ngModel)]="endDate" [settings]="settings"></angular2-date-picker>
-
-</div>
-<div class="uk-width-3-5">
-  Preis
-  <p>Kostenlos</p>
-  <p>Bis 10€</p>
-  <p>Über 10€</p>
-</div>
--->
