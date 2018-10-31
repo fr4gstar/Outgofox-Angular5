@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MoviesService} from '../../Services/movies.service';
+import {EventsService} from '../../Services/events.service';
+import {Event} from '../../Models/EVENT';
 
 @Component({
   selector: 'app-banner',
@@ -7,16 +9,22 @@ import {MoviesService} from '../../Services/movies.service';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
-  public premium: any;
+  public premiums: Event[];
 
   constructor(
-    private moviesService: MoviesService
-  ) { }
+    private eventsService: EventsService
+  ) {
+
+  }
 
   ngOnInit() {
-    this.loadPremium();
+    this.loadPremiums();
   }
-  private loadPremium() {
-    //this.premium = this.moviesService.loadPremium();
+  private loadPremiums(): void {
+    this.eventsService.loadPremiums()
+      .subscribe(premiums => {
+        this.premiums = premiums;
+        console.log('events controller - premiums', this.premiums);
+      });
   }
 }

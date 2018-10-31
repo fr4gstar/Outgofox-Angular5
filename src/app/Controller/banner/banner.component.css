@@ -1,3 +1,6 @@
 .uk-slideshow-items, h3{
   color: black !important;
 }
+a, a:hover {
+  color: #333;
+}

@@ -1,10 +1,13 @@
 <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: fade; min-height: 250; max-height: 300">
   <ul class="uk-slideshow-items">
-    <li>
-      <img src="https://ausgehfuchs.de/storage/images/events/YG4ERLvw8diEBHKM7ux9Ta6X4oGkwm0nWk2SZJpo.jpeg" alt="" uk-cover>
+    <li *ngFor="let event of premiums;">
+      <img src="{{event.image_banner}}" alt="" uk-cover>
       <div class="uk-overlay uk-overlay-default uk-position-bottom uk-text-left uk-transition-slide-bottom">
-        <h3 class="uk-margin-remove">Bottom</h3>
-        <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h3 class="uk-margin-remove" >
+          <a routerLink="/event/{{event.id}}">{{event.title}}</a>
+        </h3>
+        <p class="uk-margin-remove">{{event.description | slice: 0:100}}</p>
+        <a routerLink="/event/{{event.id}}" *ngIf="event.description.length > 100">... Weiter Lesen </a>
       </div>
     </li>
   </ul>
