@@ -73,7 +73,7 @@
 </div>
 
 <div class="uk-container">
-  <agm-map [latitude]="movie.cinemas[0].latitude" [longitude]="movie.cinemas[0].longitutde" [styles]="styles">
-    <agm-marker [latitude]="cinema.latitude" [longitude]="cinema.longitutde" *ngFor="let cinema of movie.cinemas;"></agm-marker>
+  <agm-map [latitude]="movie.cinemas[0].gmaps_latitude" [longitude]="movie.cinemas[0].gmaps_longitutde" [styles]="styles">
+    <agm-marker [latitude]="cinema.gmaps_latitude" [longitude]="cinema.gmaps_longitutde" *ngFor="let cinema of movie.cinemas;"></agm-marker>
   </agm-map>
 </div>
